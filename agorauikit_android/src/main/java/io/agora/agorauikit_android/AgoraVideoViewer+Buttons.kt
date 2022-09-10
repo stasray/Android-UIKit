@@ -41,11 +41,6 @@ internal fun AgoraVideoViewer.getCameraButton(): AgoraButton {
             } else {
                 Color.WHITE
             })
-            if (!it.isSelected) {
-                it.alpha = 0.8f
-            } else {
-                it.alpha = 1f
-            }
             agCamButton.setImageResource(if (!it.isSelected) {
                 R.drawable.ic_video_muted
             } else {
@@ -55,6 +50,7 @@ internal fun AgoraVideoViewer.getCameraButton(): AgoraButton {
             this.agkit.enableLocalVideo(!it.isSelected)
         }
     }
+    agCamButton.background.setTint(Color.WHITE)
     agCamButton.setImageResource(R.drawable.ic_video_unmuted)
     this.camButton = agCamButton
     return agCamButton
