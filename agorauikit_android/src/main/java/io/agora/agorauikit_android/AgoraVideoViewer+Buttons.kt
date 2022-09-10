@@ -75,6 +75,7 @@ internal fun AgoraVideoViewer.getMicButton(): AgoraButton {
         })
     }
     this.micButton = agMicButton
+    agMicButton.background.setTint(Color.WHITE);
     agMicButton.setImageResource(R.drawable.ic_micro_unmuted)
     return agMicButton
 }
