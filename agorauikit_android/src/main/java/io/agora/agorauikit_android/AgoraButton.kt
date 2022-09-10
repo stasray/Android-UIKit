@@ -29,8 +29,8 @@ public class AgoraButton @JvmOverloads constructor(
 //        setBackgroundColor(Color.BLUE)
         background = context.getDrawable(R.drawable.button_background)
         scaleType = ScaleType.FIT_XY
-        this.background.setTint(Color.GRAY)
-        setPadding(DPToPx(context, 15))
+        this.background.setTint(Color.DKGRAY)
+        setPadding(DPToPx(context, 8))
         setOnClickListener {
             this.clickAction?.let { it(this) }
         }

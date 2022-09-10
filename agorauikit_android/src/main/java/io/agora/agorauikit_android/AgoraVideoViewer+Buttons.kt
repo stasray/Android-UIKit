@@ -41,7 +41,7 @@ internal fun AgoraVideoViewer.getCameraButton(): AgoraButton {
             } else {
                 Color.WHITE
             })
-            agCamButton.setImageResource(if (!it.isSelected) {
+            agCamButton.setImageResource(if (it.isSelected) {
                 R.drawable.ic_video_muted
             } else {
                 R.drawable.ic_video_unmuted
@@ -124,7 +124,7 @@ internal fun AgoraVideoViewer.addVideoButtons() {
     val buttons = this.builtinButtons() + this.agoraSettings.extraButtons
     container.visibility = if (buttons.isEmpty()) View.INVISIBLE else View.VISIBLE
 
-    val buttonSize = 100
+    val buttonSize = 200
     val buttonMargin = 10f
     buttons.forEach { button ->
         val llayout = LinearLayout.LayoutParams(buttonSize, buttonSize)
