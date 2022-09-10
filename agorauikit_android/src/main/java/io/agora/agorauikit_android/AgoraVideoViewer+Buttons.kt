@@ -36,12 +36,27 @@ internal fun AgoraVideoViewer.getCameraButton(): AgoraButton {
     agCamButton.clickAction = {
         (this.context as Activity).runOnUiThread {
             it.isSelected = !it.isSelected
-            it.background.setTint(if (it.isSelected) Color.RED else Color.GRAY)
+            it.background.setTint(if (it.isSelected) {
+                Color.DKGRAY
+            } else {
+                Color.WHITE
+            })
+            if (!it.isSelected) {
+                it.alpha = 0.8f
+            } else {
+                it.alpha = 1f
+            }
+            agCamButton.setImageResource(if (!it.isSelected) {
+                R.drawable.ic_video_muted
+            } else {
+                R.drawable.ic_video_unmuted
+            })
+
             this.agkit.enableLocalVideo(!it.isSelected)
         }
     }
+    agCamButton.setImageResource(R.drawable.ic_video_unmuted)
     this.camButton = agCamButton
-    agCamButton.setImageResource(R.drawable.ic_video_mute)
     return agCamButton
 }
 

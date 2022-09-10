@@ -10,6 +10,7 @@
         <entry key="agorauikit_android/src/main/res/drawable/ic_person.xml" value="0.125" />
         <entry key="agorauikit_android/src/main/res/drawable/ic_round_pending_24.xml" value="0.125" />
         <entry key="agorauikit_android/src/main/res/drawable/ic_video_mute.xml" value="0.125" />
+        <entry key="agorauikit_android/src/main/res/drawable/ic_video_unmuted.xml" value="0.30185185185185187" />
       </map>
     </option>
   </component>
