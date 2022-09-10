@@ -64,12 +64,18 @@ internal fun AgoraVideoViewer.getMicButton(): AgoraButton {
     val agMicButton = AgoraButton(context = this.context)
     agMicButton.clickAction = {
         it.isSelected = !it.isSelected
-        it.background.setTint(if (it.isSelected) Color.RED else Color.GRAY)
+        it.background.setTint(if (it.isSelected) Color.DKGRAY else Color.WHITE)
         this.userVideoLookup[this.userID]?.audioMuted = it.isSelected
         this.agkit.muteLocalAudioStream(it.isSelected)
+
+        it.setImageResource(if (it.isSelected) {
+            R.drawable.ic_micro_muted
+        } else {
+            R.drawable.ic_micro_unmuted
+        })
     }
     this.micButton = agMicButton
-    agMicButton.setImageResource(android.R.drawable.stat_notify_call_mute)
+    agMicButton.setImageResource(R.drawable.ic_micro_unmuted)
     return agMicButton
 }
 @ExperimentalUnsignedTypes
@@ -110,9 +116,9 @@ internal fun AgoraVideoViewer.builtinButtons(): MutableList<AgoraButton> {
     for (button in this.agoraSettings.enabledButtons) {
         rtnButtons += when (button) {
             AgoraSettings.BuiltinButton.MIC -> this.getMicButton()
-            AgoraSettings.BuiltinButton.CAMERA -> this.getCameraButton()
-            AgoraSettings.BuiltinButton.FLIP -> this.getFlipButton()
             AgoraSettings.BuiltinButton.END -> this.getEndCallButton()
+            AgoraSettings.BuiltinButton.CAMERA -> this.getCameraButton()
+            //AgoraSettings.BuiltinButton.FLIP -> this.getFlipButton()
         }
     }
     return rtnButtons
@@ -124,7 +130,7 @@ internal fun AgoraVideoViewer.addVideoButtons() {
     val buttons = this.builtinButtons() + this.agoraSettings.extraButtons
     container.visibility = if (buttons.isEmpty()) View.INVISIBLE else View.VISIBLE
 
-    val buttonSize = 200
+    val buttonSize = 150
     val buttonMargin = 10f
     buttons.forEach { button ->
         val llayout = LinearLayout.LayoutParams(buttonSize, buttonSize)

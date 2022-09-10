@@ -50,7 +50,7 @@ class AgoraSettings {
     public enum class BuiltinButton {
         CAMERA,
         MIC,
-        FLIP,
+        //FLIP,
         END
     }
     /**
@@ -75,7 +75,7 @@ class AgoraSettings {
      * Which buttons should be enabled in this AgoraVideoView.
      */
     public var enabledButtons: MutableSet<BuiltinButton> = mutableSetOf(
-        BuiltinButton.CAMERA, BuiltinButton.MIC, BuiltinButton.FLIP, BuiltinButton.END
+        BuiltinButton.CAMERA, BuiltinButton.END, BuiltinButton.MIC/*, BuiltinButton.FLIP*/
     )
 
     /**
